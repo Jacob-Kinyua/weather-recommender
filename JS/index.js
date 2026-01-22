@@ -24,6 +24,14 @@ const returnMessage=document.getElementById("alert")
 const textmess= document.getElementById("feedback-review")
 const locName= document.getElementById("inputname")
 const datareseter= document.getElementById("reset")
+const links = document.querySelectorAll('.topnav a');
+const current = location.pathname.split("/").pop(); // e.g., "about.html"
+
+links.forEach(link => {
+if (link.getAttribute('href') === current) {
+    link.classList.add('active');
+}
+});
 
 //this function hides some of our pages until whenthey are required
 function hideEl() {
@@ -134,28 +142,37 @@ function liked(){
 
 //This function links our feedback tag in the navigation menu to the feedback page
 fdbcktag.addEventListener("click", () => {
+    fdbcktag.className = "active"
     fdbckEl.style.display= "block";
     mainDetails.style.display= "none";
     abtEl.style.display= "none";
+    hometag.className = "none"
+    abouttag.className = "none"
     hideEl();
 })
 
 //This function links our About tag in the navigation menu to the About page
 abouttag.addEventListener("click", () => {
+    abouttag.className = "active"
     abtEl.style.display= "block"
     mainDetails.style.display= "none";
     fdbckEl.style.display= "none";
+    hometag.className = "none"
+    fdbcktag.className = "none"
     hideEl();
 })
 
 //This function links our home tag in the navigation menu to the home/login page
 hometag.addEventListener("click", ()=> {
+    hometag.className = "active"
     fdbckEl.style.display= "none";
     mainDetails.style.display= "none";
     abtEl.style.display= "none";
     loginDetails.style.display= "block";
     signupDetails.style.display= "none";
     signupDiv.style.display= "block";
+    abouttag.className = "none"
+    fdbcktag.className = "none"
 
 })
 
