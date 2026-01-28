@@ -37,29 +37,6 @@ body {
     color: white;
 }
 
-/*Styling the login page*/
-#login-details {
-    display: block;
-    font-size: 30px;
-}
-/*Styling the submission button in our login form*/
-#logformsubmit {
-    font-size: 20px;
-}
-
-/*Styling the text prompting us to sign up*/
-#signdtls {
-    color: red;
-    font-size: 35px;
-}
-
-/*Styling our sign-up page*/
-#sign-up-details {
-    position: static;
-    display: none;
-    text-align: center;
-}
-
 /*Styling our main page*/
 #weather-html {
     display: none;

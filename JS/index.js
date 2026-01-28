@@ -26,28 +26,13 @@ const locName= document.getElementById("inputname")
 const datareseter= document.getElementById("reset")
 const links = document.querySelectorAll('.topnav a');
 const current = location.pathname.split("/").pop(); // e.g., "about.html"
-const loginemail = document.getElementById("login-email")
-const loginpassword= document.getElementById("login-password")
-const signupemail = document.getElementById("signup-email")
-const signuppassword= document.getElementById("signup-password")
+
 
 links.forEach(link => {
 if (link.getAttribute('href') === current) {
     link.classList.add('active');
 }
 });
-
-const firebaseConfig = {
-  apiKey: "AIzaSyBiNP2VC1WdQw_uLVIZ-pfRYvubxhteh0E",
-  authDomain: "weather-recommender-9a8b5.firebaseapp.com",
-  projectId: "weather-recommender-9a8b5",
-  storageBucket: "weather-recommender-9a8b5.firebasestorage.app",
-  messagingSenderId: "706117032006",
-  appId: "1:706117032006:web:eb634bdd550770fd75d247",
-  measurementId: "G-F9D2ZCGZBB"
-};
-const app = firebase.initializeApp(firebaseConfig);
-const auth = firebase.auth();
  
 
 //this function hides some of our pages until whenthey are required
@@ -58,67 +43,7 @@ function hideEl() {
     inputtag.style.display= "none";
 }
 
-//This function submits our login form
-loginForm.addEventListener("submit", function onsubmit(e) {
-    e.preventDefault()
 
-    const email = loginemail.value;
-  const password = loginpassword.value;
-
-  auth.signInWithEmailAndPassword(email, password)
-    .then(userCredential => {
-        const user = userCredential.user;
-        message.textContent = `Welcome back, ${user.email}!`;
-        hideEl();
-        mainDetails.style.display= "block";
-        loginForm.reset()
-    })
-    .catch(error => {
-        message.textContent = `Error: ${error.message}`;
-    });
-    // hideEl();
-    // mainDetails.style.display= "block";
-    // loginForm.reset()
-})
-
-//This function submits our sign-up form
-signUpForm.addEventListener("submit", function onsubmit(e) {
-    e.preventDefault()
-    const email = signupemail.value;
-    const password = signuppassword.value;
-
-    auth.createUserWithEmailAndPassword(email, password)
-        .then(userCredential => {
-            const user = userCredential.user;
-            message.textContent = `Account created! Welcome, ${user.email}`;
-            hideEl();
-        mainDetails.style.display= "block";
-        signUpForm.reset()
-        })
-        .catch(error => {
-            message.textContent = `Error: ${error.message}`;
-        });
-    // hideEl();
-    // mainDetails.style.display= "block";
-    // signUpForm.reset()
-})
-
-auth.onAuthStateChanged(user => {
-  if (user) {
-      message.textContent = `Logged in as ${user.email}`;
-  } else {
-      message.textContent = "Not signed in.";
-  }
-});
-
-//This code explains what should happen when the sign-up button on our login page is clicked.
-signUpButton.addEventListener("click", function onclick(e) {
-    e.preventDefault()
-
-    loginDetails.style.display= "none";
-    signupDetails.style.display= "block";
-    signupDiv.style.display= "none";
-})
 
 //This function submits our location form and outputs our fetched results
 locationForm.addEventListener("submit", function onsubmit(event) {
