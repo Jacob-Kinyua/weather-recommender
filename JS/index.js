@@ -87,17 +87,39 @@ locationForm.addEventListener("submit", function onsubmit(event) {
         //Our recommendation text based on the fetched results
         function recommendationCreater(data) {
             let descr= data.current.condition.text
-        if(descr === "Cloudy" || descr === "Heavy rain" || descr === "Moderate rain") {
-            return textrecomm.textContent=`Wear heavy clothing and remember to carry an umbrella`
+            let temp = data.current.temp_c
+        if(descr === "Cloudy" || descr === "Heavy rain" || descr === "Moderate rain" || descr === "Partly cloudy" || descr == "Partly Cloudy") {
+            if (temp < 10) {
+                return textrecomm.textContent=`Wear heavy clothing like a jacket and remember to carry an umbrella, some gloves and a scarf`
+            }
+            else if (temp < 25) { 
+                return textrecomm.textContent=`Carry a light jacket and an umbrella`
+            }
+            else {
+                return textrecomm.textContent=`Wear extremely light but carry an umbrella with you`
+            }
         } 
-        else if (descr === "Partly cloudy") {
-            return textrecomm.textContent=`Carry a jacket and umbrella for just in case purposes`
-        }
         else if (descr === "Sunny" || descr === "Clear") {
-            return textrecomm.textContent=`Wear light clothing and remember to hydrate regularly.`
+            if (temp < 10) {
+                return textrecomm.textContent=`Dont be fooled.Wear a warm jacket and carry some gloves and marvin`
+            }
+            else if (temp < 25) { 
+                return textrecomm.textContent=`Wear light but warm clothing, carry some sunglasses and remember to hydrate regularly.`
+            }
+            else {
+                return textrecomm.textContent=`Wear extremely light, carry sunglasses and remember proper hydration`
+            }
         }
         else {
-            return textrecomm.textContent=` Make sure you wear warm clothing.`
+            if (temp < 10) {
+                return textrecomm.textContent=`Wear warm clothing such as a jacket,scarf and boots`
+            }
+            else if (temp < 25) { 
+                return textrecomm.textContent=`Wear light clothing and remember to hydrate regularly.`
+            }
+            else {
+                return textrecomm.textContent=`Wear extremely light and remember proper hydration`
+            }
         }
         }
     })
