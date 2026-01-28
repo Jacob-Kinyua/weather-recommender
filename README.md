@@ -7,7 +7,7 @@ to wear or carry based on the current weather.
 
 To run the application:
 ### Alternative one.
-Click on the Github pages link provided and you will be directed to the weather application directly.
+Copy and paste the Github pages link provided on your browser and you will be directed to the weather application directly.
 
         https://jacob-kinyua.github.io/weather-recommender/
 ### Alternative two.
