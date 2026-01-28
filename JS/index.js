@@ -161,6 +161,7 @@ hometag.addEventListener("click", ()=> {
     abtEl.style.display= "none";
     abouttag.className = "none"
     fdbcktag.className = "none"
+    mainDetails.style.display = "block"
 
 })
 
