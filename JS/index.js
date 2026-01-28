@@ -39,6 +39,14 @@ if (link.getAttribute('href') === current) {
 
 //This function submits our location form and outputs our fetched results
 locationForm.addEventListener("submit", function onsubmit(event) {
+    const input = document.getElementById("search").value;
+
+    if (input === "") {
+        console.log(`${input}`);
+        alert("Please enter a username!"); // warn the user
+        event.preventDefault();
+    }
+    else {
     event.preventDefault()
 
     // hideEl();
@@ -46,10 +54,9 @@ locationForm.addEventListener("submit", function onsubmit(event) {
     const img= document.createElement("img")
     img.className="icon"
     right.appendChild(img)
-    const input= document.getElementById("search")
     
     //fetching our data based on the location input.
-    fetch(`https://api.weatherapi.com/v1/current.json?key=abfd839798f54c37bb6122417221712&q=${input.value}`)
+    fetch(`https://api.weatherapi.com/v1/current.json?key=abfd839798f54c37bb6122417221712&q=${input}`)
     .then((response)=> response.json())
     .then((data => renderweatherDetails(data)));
 
@@ -123,6 +130,7 @@ locationForm.addEventListener("submit", function onsubmit(event) {
         }
         }
     })
+    }
 })
 
 //This code gives functionality to our like button
