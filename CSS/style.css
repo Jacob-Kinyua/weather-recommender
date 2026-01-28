@@ -160,7 +160,7 @@ button {
 }
 
 #weather-right img {
-  width: 200px;
+  width: 210px;
 }
 /*Adding the degree symbol to the temperature output of our fetched data*/
 #temp {
