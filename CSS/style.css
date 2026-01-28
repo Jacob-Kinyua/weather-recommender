@@ -39,7 +39,6 @@ body {
 
 /*Styling our main page*/
 #weather-html {
-    display: none;
     text-align: center;
     font-size: 15px;
 }
@@ -119,6 +118,12 @@ button {
     border-radius: 10px;
 }
 
+.icon {
+    
+    width: 200px;
+    height: 200px;
+}
+
 /*Adding style to our recommendation text*/
 #recomm {
     color: rgb(38, 0, 255);
@@ -142,9 +147,21 @@ button {
 
 /*Styling the text of our fetched output*/
 #weather-container {
+    display: grid;
+    grid-template-columns: max-content auto;
+    align-items: start;
     text-align: left;
+    gap: 24px; 
 }
 
+#weather-left {
+  max-width: 800px; /* optional cap */
+
+}
+
+#weather-right img {
+  width: 200px;
+}
 /*Adding the degree symbol to the temperature output of our fetched data*/
 #temp {
     content: \00B0;

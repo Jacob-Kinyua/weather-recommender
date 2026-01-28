@@ -1,13 +1,7 @@
 //assigning a varaible to our html elements
-const loginDetails =document.getElementById("login-details")
-const signupDetails =document.getElementById("sign-up-details")
-const loginForm= document.getElementById("login-form")
-const signUpForm =document.getElementById("sign-up form")
 const mainDetails= document.getElementById("weather-html")
 const locationForm= document.getElementById("location-form")
 const mainDiv= document.getElementById("weather-container")
-const signupDiv=document.getElementById("btn-signup")
-const signUpButton = document.getElementById("sign-up btn")
 const dataTemp= document.getElementById("temp")
 const dataWind=document.getElementById("wind")
 const datadescription=document.getElementById("description")
@@ -18,7 +12,6 @@ const abouttag = document.getElementById("abttag")
 const fdbckEl= document.getElementById("Feedbackinfo")
 const abtEl= document.getElementById("Aboutinfo")
 const hometag= document.getElementById("home-tag")
-const inputtag= document.getElementById("logtitle")
 const feedbtn= document.getElementById("feedbackbtn")
 const returnMessage=document.getElementById("alert")
 const textmess= document.getElementById("feedback-review")
@@ -26,6 +19,8 @@ const locName= document.getElementById("inputname")
 const datareseter= document.getElementById("reset")
 const links = document.querySelectorAll('.topnav a');
 const current = location.pathname.split("/").pop(); // e.g., "about.html"
+const right = document.getElementById("weather-right")
+
 
 
 links.forEach(link => {
@@ -36,12 +31,9 @@ if (link.getAttribute('href') === current) {
  
 
 //this function hides some of our pages until whenthey are required
-function hideEl() {
-    loginDetails.style.display= "none";
-    signupDetails.style.display= "none";
-    signupDiv.style.display= "none";
-    inputtag.style.display= "none";
-}
+// function hideEl() {
+//     inputtag.style.display= "none";
+// }
 
 
 
@@ -49,11 +41,11 @@ function hideEl() {
 locationForm.addEventListener("submit", function onsubmit(event) {
     event.preventDefault()
 
-    hideEl();
+    // hideEl();
     //creating our image icon for our weather output.
     const img= document.createElement("img")
     img.className="icon"
-    mainDiv.appendChild(img)
+    right.appendChild(img)
     const input= document.getElementById("search")
     
     //fetching our data based on the location input.
@@ -125,7 +117,7 @@ fdbcktag.addEventListener("click", () => {
     abtEl.style.display= "none";
     hometag.className = "none"
     abouttag.className = "none"
-    hideEl();
+    // hideEl();
 })
 
 //This function links our About tag in the navigation menu to the About page
@@ -136,7 +128,7 @@ abouttag.addEventListener("click", () => {
     fdbckEl.style.display= "none";
     hometag.className = "none"
     fdbcktag.className = "none"
-    hideEl();
+    // hideEl();
 })
 
 //This function links our home tag in the navigation menu to the home/login page
@@ -145,9 +137,6 @@ hometag.addEventListener("click", ()=> {
     fdbckEl.style.display= "none";
     mainDetails.style.display= "none";
     abtEl.style.display= "none";
-    loginDetails.style.display= "block";
-    signupDetails.style.display= "none";
-    signupDiv.style.display= "block";
     abouttag.className = "none"
     fdbcktag.className = "none"
 
@@ -167,6 +156,5 @@ document.addEventListener("DOMContentLoaded", () => {
     console.log("The DOM has loaded")
     locationForm.onsubmit
     recommendationbtn.onclick
-
 
 })
